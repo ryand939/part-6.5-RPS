@@ -24,6 +24,7 @@ namespace part_6._5_RPS
 		int userScore = 0;
 		int botScore = 0;
 		int tieCount = 0;
+        //keep track of score
 		Random random = new Random();
 		private void btnRock_Click(object sender, EventArgs e)
 		{
