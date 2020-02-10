@@ -18,6 +18,7 @@ namespace part_6._5_RPS
 		bool userChosePaper = false;
 		bool userChoseScissors = false;
 
+		int progBarIncrement = 20; //will increase progress bar by this value
 		int gamesPlayed = 0;
 		int userBet = 0;
 		int userBalance = 50;
@@ -96,12 +97,7 @@ namespace part_6._5_RPS
             
             if ((userChosePaper || userChoseRock || userChoseScissors) && userBet<=userBalance)
 			{
-				
                 timer2.Start();
-
-
-
-
 			}
 			else if (userBet > userBalance)
 			{
@@ -211,9 +207,11 @@ namespace part_6._5_RPS
 
         private void Timer2_Tick(object sender, EventArgs e)
         {
-            progressBar1.Value += 10;
-            progressBar1.Value -= 1;
-            if (progressBar1.Value >= 100){
+			progressBar1.Value += progBarIncrement;
+			progressBar1.Value -= 1; //subtracting 1 causes the bar to automatically update itself.
+									 //if you dont subtract 1, the bar will not completely fill (visually)
+
+			if (progressBar1.Value >= 100){
                 gamesPlayed += 1;
                 btnRock.BackColor = Color.Gainsboro;
                 btnPaper.BackColor = Color.Gainsboro;
@@ -295,8 +293,8 @@ namespace part_6._5_RPS
                 trackBarUserBet.Value = 0;
                 lblUserBet.Text = "Bet: No bets have been made.";
                 lblYouHaveBetX.Text = $"You have bet ${trackBarUserBet.Value} on this game.";
-                timer2.Enabled = false;
-                progressBar1.Value = 0;
+				progressBar1.Value = 0;
+				timer2.Enabled = false;
             }
             
 
