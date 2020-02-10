@@ -59,7 +59,7 @@
             this.lblGameHistory = new System.Windows.Forms.Label();
             this.listBoxGameHistory = new System.Windows.Forms.ListBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.btnQuit = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBoxConfirmation.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -78,6 +78,7 @@
             // 
             // groupBoxConfirmation
             // 
+            this.groupBoxConfirmation.Controls.Add(this.progressBar1);
             this.groupBoxConfirmation.Controls.Add(this.btnRunGame);
             this.groupBoxConfirmation.Controls.Add(this.lblUserBet);
             this.groupBoxConfirmation.Controls.Add(this.lblUserChoiceHUD);
@@ -94,9 +95,9 @@
             this.btnRunGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRunGame.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRunGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRunGame.Location = new System.Drawing.Point(6, 57);
+            this.btnRunGame.Location = new System.Drawing.Point(6, 66);
             this.btnRunGame.Name = "btnRunGame";
-            this.btnRunGame.Size = new System.Drawing.Size(209, 32);
+            this.btnRunGame.Size = new System.Drawing.Size(209, 24);
             this.btnRunGame.TabIndex = 5;
             this.btnRunGame.Text = "Submit";
             this.btnRunGame.UseVisualStyleBackColor = false;
@@ -130,7 +131,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(470, 338);
+            this.tabControl1.Size = new System.Drawing.Size(470, 326);
             this.tabControl1.TabIndex = 4;
             // 
             // tabPage1
@@ -145,7 +146,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(462, 309);
+            this.tabPage1.Size = new System.Drawing.Size(462, 297);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Rock Paper Scissors";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
@@ -376,7 +377,7 @@
             this.tabPage3.Controls.Add(this.listBoxGameHistory);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(462, 309);
+            this.tabPage3.Size = new System.Drawing.Size(462, 297);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "History";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -397,25 +398,27 @@
             this.listBoxGameHistory.Name = "listBoxGameHistory";
             this.listBoxGameHistory.Size = new System.Drawing.Size(338, 290);
             this.listBoxGameHistory.TabIndex = 0;
-
             // 
-            // btnQuit
+            // timer2
             // 
-            this.btnQuit.Location = new System.Drawing.Point(122, 384);
-            this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(75, 23);
-            this.btnQuit.TabIndex = 5;
-            this.btnQuit.Text = "QUIT";
-            this.btnQuit.UseVisualStyleBackColor = true;
-            this.btnQuit.Click += new System.EventHandler(this.BtnQuit_Click);
+            this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(6, 54);
+            this.progressBar1.Maximum = 109;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(209, 10);
+            this.progressBar1.TabIndex = 6;
+            this.progressBar1.Click += new System.EventHandler(this.ProgressBar1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 447);
-            this.Controls.Add(this.btnQuit);
+            this.ClientSize = new System.Drawing.Size(471, 326);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Part 6 - Rock Paper Scissors";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -474,7 +477,7 @@
 		private System.Windows.Forms.TabPage tabPage3;
 		private System.Windows.Forms.Label lblGameHistory;
 		private System.Windows.Forms.ListBox listBoxGameHistory;
-        private System.Windows.Forms.Button btnQuit;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

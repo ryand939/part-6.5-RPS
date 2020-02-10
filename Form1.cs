@@ -92,90 +92,12 @@ namespace part_6._5_RPS
 
 		private void btnRunGame_Click(object sender, EventArgs e)            //main game 
 		{
-			if ((userChosePaper || userChoseRock || userChoseScissors) && userBet<=userBalance)
+            progressBar1.Value = 0;
+            
+            if ((userChosePaper || userChoseRock || userChoseScissors) && userBet<=userBalance)
 			{
-				gamesPlayed += 1;
-				btnRock.BackColor = Color.Gainsboro;
-				btnPaper.BackColor = Color.Gainsboro;
-				btnScissors.BackColor = Color.Gainsboro;
-				bool botChoseRock = false;
-				bool botChosePaper = false;
-				bool botChoseScissors = false;
-				userBalance -= userBet; //remember to add double the bet back if they win!
-				//what did the bot choose?
-				int x = random.Next(1, 4); //get a random num from 1-3
-				//the bot choice depends on what number they rolled 1-3
-				if(x == 1)
-				{
-					whatTheBotChose.Text = "Rock!";
-					pictureBox4.Image = Properties.Resources.rust_rock_png_4;
-					lblDisplayBotChoice.Text = $"The bot chose rock, you chose {userChoiceStr}!";
-					botChoseRock = true;
-				}
-				else if(x == 2)
-				{
-					whatTheBotChose.Text = "Paper!";
-					pictureBox4.Image = Properties.Resources.Paper_icon;
-					lblDisplayBotChoice.Text = $"The bot chose paper, you chose {userChoiceStr}!";
-					botChosePaper = true;
-				}
-				else if(x == 3)
-				{
-					whatTheBotChose.Text = "Scissors!";
-					pictureBox4.Image = Properties.Resources.scissors_icon_office_tools_icons_softiconsm_10;
-					lblDisplayBotChoice.Text = $"The bot chose scissors, you chose {userChoiceStr}!";
-					botChoseScissors = true;
-				}
-				//the bot now has a choice
-				if ((userChoseRock && botChoseRock) || (userChosePaper && botChosePaper) || (userChoseScissors && botChoseScissors))
-				{
-					lblTellGameResults.Text = "You tied the match!";
-					if (userBet != 0)
-					{
-						userBalance += userBet;
-					}
-					tieCount += 1;
-					listBoxGameHistory.Items.Add($"{gamesPlayed}. Tie");
-				}
-				else if ((userChoseRock && botChosePaper) || (userChosePaper && botChoseScissors) || (userChoseScissors && botChoseRock))//loser
-				{
-					if (userBet != 0)
-					{
-						lblTellGameResults.Text = $"You lost the match and lost ${userBet}!";
-					}
-					else
-					{
-						lblTellGameResults.Text = $"You lost the match!";
-					}
-					listBoxGameHistory.Items.Add($"{gamesPlayed}. Bot won match");
-					botScore += 1;
-				}
-				else if ((botChoseRock && userChosePaper) || (botChosePaper && userChoseScissors) || (botChoseScissors && userChoseRock))//winner
-				{
-					if (userBet != 0)
-					{
-						lblTellGameResults.Text = $"You won the match and won ${userBet}!";
-						userBalance += 2 * userBet;
-					}
-					else
-					{
-						lblTellGameResults.Text = $"You won the match!";
-					}
-					listBoxGameHistory.Items.Add($"{gamesPlayed}. Local player won match");
-					userScore += 1;
-
-				}
-				lblUserBalance.Text = $"Balance: ${userBalance.ToString()}";
-				lblGameHistory.Text = "Previous game scores:";
-				userChoseRock = false;
-				userChosePaper = false;
-				userChoseScissors = false;
-				lblUserChoiceHUD.Text = "Choice: No choice has been made.";
-				userBet = 0;
-				trackBarUserBet.Value = 0;
-				lblUserBet.Text = "Bet: No bets have been made.";
-				lblYouHaveBetX.Text = $"You have bet ${trackBarUserBet.Value} on this game.";
-
+				
+                timer2.Start();
 
 
 
@@ -269,7 +191,6 @@ namespace part_6._5_RPS
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-
 		}
 
 		private void label2_Click(object sender, EventArgs e)
@@ -286,6 +207,104 @@ namespace part_6._5_RPS
         private void BtnQuit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Timer2_Tick(object sender, EventArgs e)
+        {
+            progressBar1.Value += 10;
+            progressBar1.Value -= 1;
+            if (progressBar1.Value >= 100){
+                gamesPlayed += 1;
+                btnRock.BackColor = Color.Gainsboro;
+                btnPaper.BackColor = Color.Gainsboro;
+                btnScissors.BackColor = Color.Gainsboro;
+                bool botChoseRock = false;
+                bool botChosePaper = false;
+                bool botChoseScissors = false;
+                userBalance -= userBet; //remember to add double the bet back if they win!
+                                        //what did the bot choose?
+                int x = random.Next(1, 4); //get a random num from 1-3
+                                           //the bot choice depends on what number they rolled 1-3
+                if (x == 1)
+                {
+                    whatTheBotChose.Text = "Rock!";
+                    pictureBox4.Image = Properties.Resources.rust_rock_png_4;
+                    lblDisplayBotChoice.Text = $"The bot chose rock, you chose {userChoiceStr}!";
+                    botChoseRock = true;
+                }
+                else if (x == 2)
+                {
+                    whatTheBotChose.Text = "Paper!";
+                    pictureBox4.Image = Properties.Resources.Paper_icon;
+                    lblDisplayBotChoice.Text = $"The bot chose paper, you chose {userChoiceStr}!";
+                    botChosePaper = true;
+                }
+                else if (x == 3)
+                {
+                    whatTheBotChose.Text = "Scissors!";
+                    pictureBox4.Image = Properties.Resources.scissors_icon_office_tools_icons_softiconsm_10;
+                    lblDisplayBotChoice.Text = $"The bot chose scissors, you chose {userChoiceStr}!";
+                    botChoseScissors = true;
+                }
+                //the bot now has a choice
+                if ((userChoseRock && botChoseRock) || (userChosePaper && botChosePaper) || (userChoseScissors && botChoseScissors))
+                {
+                    lblTellGameResults.Text = "You tied the match!";
+                    if (userBet != 0)
+                    {
+                        userBalance += userBet;
+                    }
+                    tieCount += 1;
+                    listBoxGameHistory.Items.Add($"{gamesPlayed}. Tie [{userScore} - {tieCount} - {botScore}]");
+                }
+                else if ((userChoseRock && botChosePaper) || (userChosePaper && botChoseScissors) || (userChoseScissors && botChoseRock))//loser
+                {
+                    if (userBet != 0)
+                    {
+                        lblTellGameResults.Text = $"You lost the match and lost ${userBet}!";
+                    }
+                    else
+                    {
+                        lblTellGameResults.Text = $"You lost the match!";
+                    }
+                    listBoxGameHistory.Items.Add($"{gamesPlayed}. Bot won match [{userScore} - {tieCount} - {botScore}]");
+                    botScore += 1;
+                }
+                else if ((botChoseRock && userChosePaper) || (botChosePaper && userChoseScissors) || (botChoseScissors && userChoseRock))//winner
+                {
+                    if (userBet != 0)
+                    {
+                        lblTellGameResults.Text = $"You won the match and won ${userBet}!";
+                        userBalance += 2 * userBet;
+                    }
+                    else
+                    {
+                        lblTellGameResults.Text = $"You won the match!";
+                    }
+                    listBoxGameHistory.Items.Add($"{gamesPlayed}. Local player won match [{userScore} - {tieCount} - {botScore}]");
+                    userScore += 1;
+
+                }
+                lblUserBalance.Text = $"Balance: ${userBalance.ToString()}";
+                lblGameHistory.Text = "Previous game scores:";
+                userChoseRock = false;
+                userChosePaper = false;
+                userChoseScissors = false;
+                lblUserChoiceHUD.Text = "Choice: No choice has been made.";
+                userBet = 0;
+                trackBarUserBet.Value = 0;
+                lblUserBet.Text = "Bet: No bets have been made.";
+                lblYouHaveBetX.Text = $"You have bet ${trackBarUserBet.Value} on this game.";
+                timer2.Enabled = false;
+                progressBar1.Value = 0;
+            }
+            
+
+        }
+
+        private void ProgressBar1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
