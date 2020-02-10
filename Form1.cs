@@ -277,18 +277,15 @@ namespace part_6._5_RPS
 
 		}
 
-		private void timer2_Tick(object sender, EventArgs e)
-		{
-		}
 
-		private void progressBarAI_Click(object sender, EventArgs e)
-		{
 
-		}
 
-		private void groupBox2_Enter(object sender, EventArgs e)
-		{
 
-		}
-	}
+
+
+        private void BtnQuit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
 }
