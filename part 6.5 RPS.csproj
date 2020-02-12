@@ -102,5 +102,8 @@
   <ItemGroup>
     <None Include="money-flat-money-png-15.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="1200px-Rock-paper-scissors.svg.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

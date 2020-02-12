@@ -63,6 +63,16 @@ namespace part_6._5_RPS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1200px_Rock_paper_scissors_svg {
+            get {
+                object obj = ResourceManager.GetObject("1200px-Rock-paper-scissors.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap money_flat_money_png_15 {
             get {
                 object obj = ResourceManager.GetObject("money_flat_money_png_15", resourceCulture);

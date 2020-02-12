@@ -86,10 +86,7 @@ namespace part_6._5_RPS
 			else{lblUserBet.Text = $"Bet: ${trackBarUserBet.Value}";}
 		}
 
-		private void lblYouHaveBetX_Click(object sender, EventArgs e)
-		{
 
-		}
 
 		private void btnRunGame_Click(object sender, EventArgs e)            //main game 
 		{
@@ -117,10 +114,7 @@ namespace part_6._5_RPS
 
 		}
 
-		private void boxResults_Enter(object sender, EventArgs e)
-		{
 
-		}
 
 		public Form1()
 		{
@@ -189,10 +183,7 @@ namespace part_6._5_RPS
 		{
 		}
 
-		private void label2_Click(object sender, EventArgs e)
-		{
 
-		}
 
 
 
@@ -300,9 +291,6 @@ namespace part_6._5_RPS
 
         }
 
-        private void ProgressBar1_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }
