@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace part_6._5_RPS
 {
@@ -27,6 +28,9 @@ namespace part_6._5_RPS
 		int tieCount = 0;
         //keep track of score
 		Random random = new Random();
+
+
+
 		private void btnRock_Click(object sender, EventArgs e)
 		{
 			pictureBox4.Image = null;
@@ -129,7 +133,7 @@ namespace part_6._5_RPS
 
 		private void mouseOn_btnRock(object sender, EventArgs e)
 		{
-			lblMessageCentre.Text = "Click to chose rock.";
+			lblMessageCentre.Text = "Click to choose rock.";
 		}
 
 		private void mouseOff_btnRock(object sender, EventArgs e)
@@ -139,7 +143,7 @@ namespace part_6._5_RPS
 
 		private void mouseOn_btnPaper(object sender, EventArgs e)
 		{
-			lblMessageCentre.Text = "Click to chose paper.";
+			lblMessageCentre.Text = "Click to choose paper.";
 
 		}
 
@@ -151,7 +155,7 @@ namespace part_6._5_RPS
 
 		private void mouseOn_btnScissors(object sender, EventArgs e)
 		{
-			lblMessageCentre.Text = "Click to chose scissors.";
+			lblMessageCentre.Text = "Click to choose scissors.";
 
 		}
 
@@ -290,7 +294,6 @@ namespace part_6._5_RPS
             
 
         }
-
-
-    }
+		
+	}
 }
