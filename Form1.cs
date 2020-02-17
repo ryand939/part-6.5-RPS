@@ -29,6 +29,8 @@ namespace part_6._5_RPS
         //keep track of score
 		Random random = new Random();
 
+		bool moneyLoss = true;
+
 
 
 		private void btnRock_Click(object sender, EventArgs e)
@@ -37,6 +39,7 @@ namespace part_6._5_RPS
 			whatTheBotChose.Text = "";
 			lblDisplayBotChoice.Text = "";
 			lblTellGameResults.Text = "";
+			lblCheat.Text = "";
 			userChoiceStr = "rock";
 			userChoseRock = true;
 			userChosePaper = false; 
@@ -53,6 +56,7 @@ namespace part_6._5_RPS
 			userChoiceStr = "paper";
 			lblDisplayBotChoice.Text = "";
 			lblTellGameResults.Text = "";
+			lblCheat.Text = "";
 			userChoseRock = false;
 			userChosePaper = true;
 			userChoseScissors = false;
@@ -68,7 +72,9 @@ namespace part_6._5_RPS
 			pictureBox4.Image = null;
 			whatTheBotChose.Text = "";
 			userChoiceStr = "scissors";
+			lblDisplayBotChoice.Text = "";
 			lblTellGameResults.Text = "";
+			lblCheat.Text = "";
 			userChoseRock = false;
 			userChosePaper = false;
 			userChoseScissors = true;
@@ -84,6 +90,7 @@ namespace part_6._5_RPS
 			whatTheBotChose.Text = "";
 			lblDisplayBotChoice.Text = "";
 			lblTellGameResults.Text = "";
+			lblCheat.Text = "";
 			userBet = trackBarUserBet.Value;
 			lblYouHaveBetX.Text = $"You have bet ${trackBarUserBet.Value} on this game.";
 			if (userBet == 0){lblUserBet.Text = "Bet: No bets have been made.";}
@@ -260,6 +267,11 @@ namespace part_6._5_RPS
                     {
                         lblTellGameResults.Text = $"You lost the match!";
                     }
+					if (moneyLoss == false && userBet != 0)
+					{
+						userBalance += userBet;
+						lblCheat.Text = "Your bet has been returned.";
+					}
                     listBoxGameHistory.Items.Add($"{gamesPlayed}. Bot won match [{userScore} - {tieCount} - {botScore}]");
                     botScore += 1;
                 }
@@ -294,6 +306,10 @@ namespace part_6._5_RPS
             
 
         }
-		
+
+		private void cBoxMoneyLoss_CheckedChanged(object sender, EventArgs e)
+		{
+			moneyLoss = false;
+		}
 	}
 }

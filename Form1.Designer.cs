@@ -65,6 +65,8 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.pictureBox5 = new System.Windows.Forms.PictureBox();
 			this.timer2 = new System.Windows.Forms.Timer(this.components);
+			this.cBoxMoneyLoss = new System.Windows.Forms.CheckBox();
+			this.lblCheat = new System.Windows.Forms.Label();
 			this.groupBoxConfirmation.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -111,7 +113,7 @@
 			this.btnRunGame.BackColor = System.Drawing.Color.Gainsboro;
 			this.btnRunGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.btnRunGame.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnRunGame.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.btnRunGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnRunGame.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnRunGame.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.btnRunGame.Location = new System.Drawing.Point(6, 66);
@@ -220,6 +222,7 @@
 			// boxResults
 			// 
 			this.boxResults.BackColor = System.Drawing.Color.Transparent;
+			this.boxResults.Controls.Add(this.lblCheat);
 			this.boxResults.Controls.Add(this.lblTellGameResults);
 			this.boxResults.Controls.Add(this.lblDisplayBotChoice);
 			this.boxResults.Location = new System.Drawing.Point(236, 151);
@@ -297,7 +300,7 @@
 			// 
 			this.btnScissors.BackColor = System.Drawing.Color.Gainsboro;
 			this.btnScissors.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnScissors.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.btnScissors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnScissors.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnScissors.Location = new System.Drawing.Point(63, 121);
 			this.btnScissors.Name = "btnScissors";
@@ -313,7 +316,7 @@
 			// 
 			this.btnPaper.BackColor = System.Drawing.Color.Gainsboro;
 			this.btnPaper.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnPaper.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.btnPaper.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnPaper.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnPaper.Location = new System.Drawing.Point(63, 70);
 			this.btnPaper.Name = "btnPaper";
@@ -329,7 +332,7 @@
 			// 
 			this.btnRock.BackColor = System.Drawing.Color.Gainsboro;
 			this.btnRock.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnRock.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.btnRock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnRock.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnRock.Location = new System.Drawing.Point(63, 19);
 			this.btnRock.Name = "btnRock";
@@ -446,6 +449,7 @@
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.cBoxMoneyLoss);
 			this.groupBox2.Controls.Add(this.label3);
 			this.groupBox2.Controls.Add(this.pictureBox5);
 			this.groupBox2.Location = new System.Drawing.Point(3, 3);
@@ -479,6 +483,27 @@
 			// timer2
 			// 
 			this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
+			// 
+			// cBoxMoneyLoss
+			// 
+			this.cBoxMoneyLoss.AutoSize = true;
+			this.cBoxMoneyLoss.Location = new System.Drawing.Point(327, 154);
+			this.cBoxMoneyLoss.Name = "cBoxMoneyLoss";
+			this.cBoxMoneyLoss.Size = new System.Drawing.Size(116, 17);
+			this.cBoxMoneyLoss.TabIndex = 4;
+			this.cBoxMoneyLoss.Text = "Disable money loss";
+			this.cBoxMoneyLoss.UseVisualStyleBackColor = true;
+			this.cBoxMoneyLoss.CheckedChanged += new System.EventHandler(this.cBoxMoneyLoss_CheckedChanged);
+			// 
+			// lblCheat
+			// 
+			this.lblCheat.AutoSize = true;
+			this.lblCheat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblCheat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.lblCheat.Location = new System.Drawing.Point(7, 66);
+			this.lblCheat.Name = "lblCheat";
+			this.lblCheat.Size = new System.Drawing.Size(0, 13);
+			this.lblCheat.TabIndex = 2;
 			// 
 			// Form1
 			// 
@@ -558,6 +583,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
-    }
+		private System.Windows.Forms.CheckBox cBoxMoneyLoss;
+		private System.Windows.Forms.Label lblCheat;
+	}
 }
 
