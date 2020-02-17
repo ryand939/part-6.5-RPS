@@ -42,6 +42,7 @@
 			this.pictureBox4 = new System.Windows.Forms.PictureBox();
 			this.lblMessageCentre = new System.Windows.Forms.Label();
 			this.boxResults = new System.Windows.Forms.GroupBox();
+			this.lblCheat = new System.Windows.Forms.Label();
 			this.lblTellGameResults = new System.Windows.Forms.Label();
 			this.lblDisplayBotChoice = new System.Windows.Forms.Label();
 			this.groupBoxUserChoice = new System.Windows.Forms.GroupBox();
@@ -60,13 +61,20 @@
 			this.lblGameHistory = new System.Windows.Forms.Label();
 			this.listBoxGameHistory = new System.Windows.Forms.ListBox();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.groupBoxCheats = new System.Windows.Forms.GroupBox();
+			this.btnAddFunds = new System.Windows.Forms.Button();
+			this.numAddFunds = new System.Windows.Forms.NumericUpDown();
+			this.label4 = new System.Windows.Forms.Label();
+			this.checkBoxWinCheat = new System.Windows.Forms.CheckBox();
+			this.cBoxMoneyLoss = new System.Windows.Forms.CheckBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.pictureBox5 = new System.Windows.Forms.PictureBox();
 			this.timer2 = new System.Windows.Forms.Timer(this.components);
-			this.cBoxMoneyLoss = new System.Windows.Forms.CheckBox();
-			this.lblCheat = new System.Windows.Forms.Label();
+			this.listBoxCheatLogs = new System.Windows.Forms.ListBox();
+			this.btnResetLosses = new System.Windows.Forms.Button();
+			this.btnClearCheatLogs = new System.Windows.Forms.Button();
 			this.groupBoxConfirmation.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -82,6 +90,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.trackBarUserBet)).BeginInit();
 			this.tabPage3.SuspendLayout();
 			this.tabPage2.SuspendLayout();
+			this.groupBoxCheats.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numAddFunds)).BeginInit();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
 			this.SuspendLayout();
@@ -231,6 +241,16 @@
 			this.boxResults.TabIndex = 4;
 			this.boxResults.TabStop = false;
 			this.boxResults.Text = "Results";
+			// 
+			// lblCheat
+			// 
+			this.lblCheat.AutoSize = true;
+			this.lblCheat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblCheat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.lblCheat.Location = new System.Drawing.Point(7, 66);
+			this.lblCheat.Name = "lblCheat";
+			this.lblCheat.Size = new System.Drawing.Size(0, 13);
+			this.lblCheat.TabIndex = 2;
 			// 
 			// lblTellGameResults
 			// 
@@ -429,6 +449,7 @@
 			// 
 			// tabPage2
 			// 
+			this.tabPage2.Controls.Add(this.groupBoxCheats);
 			this.tabPage2.Controls.Add(this.label2);
 			this.tabPage2.Controls.Add(this.groupBox2);
 			this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -437,6 +458,77 @@
 			this.tabPage2.TabIndex = 3;
 			this.tabPage2.Text = "More";
 			this.tabPage2.UseVisualStyleBackColor = true;
+			// 
+			// groupBoxCheats
+			// 
+			this.groupBoxCheats.Controls.Add(this.btnClearCheatLogs);
+			this.groupBoxCheats.Controls.Add(this.btnResetLosses);
+			this.groupBoxCheats.Controls.Add(this.listBoxCheatLogs);
+			this.groupBoxCheats.Controls.Add(this.btnAddFunds);
+			this.groupBoxCheats.Controls.Add(this.numAddFunds);
+			this.groupBoxCheats.Controls.Add(this.label4);
+			this.groupBoxCheats.Controls.Add(this.checkBoxWinCheat);
+			this.groupBoxCheats.Controls.Add(this.cBoxMoneyLoss);
+			this.groupBoxCheats.Location = new System.Drawing.Point(286, 3);
+			this.groupBoxCheats.Name = "groupBoxCheats";
+			this.groupBoxCheats.Size = new System.Drawing.Size(173, 270);
+			this.groupBoxCheats.TabIndex = 5;
+			this.groupBoxCheats.TabStop = false;
+			this.groupBoxCheats.Text = "Cheats";
+			// 
+			// btnAddFunds
+			// 
+			this.btnAddFunds.Location = new System.Drawing.Point(124, 62);
+			this.btnAddFunds.Name = "btnAddFunds";
+			this.btnAddFunds.Size = new System.Drawing.Size(45, 22);
+			this.btnAddFunds.TabIndex = 8;
+			this.btnAddFunds.Text = "Add";
+			this.btnAddFunds.UseVisualStyleBackColor = true;
+			this.btnAddFunds.Click += new System.EventHandler(this.btnAddFunds_Click);
+			// 
+			// numAddFunds
+			// 
+			this.numAddFunds.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.numAddFunds.Location = new System.Drawing.Point(59, 63);
+			this.numAddFunds.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+			this.numAddFunds.Name = "numAddFunds";
+			this.numAddFunds.Size = new System.Drawing.Size(61, 20);
+			this.numAddFunds.TabIndex = 7;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(4, 66);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(55, 13);
+			this.label4.TabIndex = 6;
+			this.label4.Text = "Add funds";
+			// 
+			// checkBoxWinCheat
+			// 
+			this.checkBoxWinCheat.AutoSize = true;
+			this.checkBoxWinCheat.Location = new System.Drawing.Point(6, 43);
+			this.checkBoxWinCheat.Name = "checkBoxWinCheat";
+			this.checkBoxWinCheat.Size = new System.Drawing.Size(78, 17);
+			this.checkBoxWinCheat.TabIndex = 5;
+			this.checkBoxWinCheat.Text = "Always win";
+			this.checkBoxWinCheat.UseVisualStyleBackColor = true;
+			this.checkBoxWinCheat.CheckedChanged += new System.EventHandler(this.checkBoxWinCheat_CheckedChanged);
+			// 
+			// cBoxMoneyLoss
+			// 
+			this.cBoxMoneyLoss.AutoSize = true;
+			this.cBoxMoneyLoss.Location = new System.Drawing.Point(6, 19);
+			this.cBoxMoneyLoss.Name = "cBoxMoneyLoss";
+			this.cBoxMoneyLoss.Size = new System.Drawing.Size(116, 17);
+			this.cBoxMoneyLoss.TabIndex = 4;
+			this.cBoxMoneyLoss.Text = "Disable money loss";
+			this.cBoxMoneyLoss.UseVisualStyleBackColor = true;
+			this.cBoxMoneyLoss.CheckedChanged += new System.EventHandler(this.cBoxMoneyLoss_CheckedChanged);
 			// 
 			// label2
 			// 
@@ -449,12 +541,11 @@
 			// 
 			// groupBox2
 			// 
-			this.groupBox2.Controls.Add(this.cBoxMoneyLoss);
 			this.groupBox2.Controls.Add(this.label3);
 			this.groupBox2.Controls.Add(this.pictureBox5);
 			this.groupBox2.Location = new System.Drawing.Point(3, 3);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(449, 270);
+			this.groupBox2.Size = new System.Drawing.Size(278, 270);
 			this.groupBox2.TabIndex = 1;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Instructions";
@@ -464,18 +555,18 @@
 			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(6, 16);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(394, 39);
+			this.label3.Size = new System.Drawing.Size(266, 52);
 			this.label3.TabIndex = 3;
-			this.label3.Text = "In order to play the game, you must select either rock, paper, or scissors. You m" +
-    "ay \r\nchoose to make a bet, but they are not necessary to run the game. \r\nGame lo" +
-    "gic is displayed below.\r\n";
+			this.label3.Text = "In order to play the game, you must select either rock, \r\npaper, or scissors. You" +
+    " may choose to make a bet, but \r\nthey are not necessary to run the game. \r\nGame " +
+    "logic is displayed below.\r\n";
 			// 
 			// pictureBox5
 			// 
 			this.pictureBox5.Image = global::part_6._5_RPS.Properties.Resources._1200px_Rock_paper_scissors_svg;
-			this.pictureBox5.Location = new System.Drawing.Point(98, 58);
+			this.pictureBox5.Location = new System.Drawing.Point(6, 71);
 			this.pictureBox5.Name = "pictureBox5";
-			this.pictureBox5.Size = new System.Drawing.Size(245, 206);
+			this.pictureBox5.Size = new System.Drawing.Size(266, 193);
 			this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox5.TabIndex = 0;
 			this.pictureBox5.TabStop = false;
@@ -484,26 +575,35 @@
 			// 
 			this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
 			// 
-			// cBoxMoneyLoss
+			// listBoxCheatLogs
 			// 
-			this.cBoxMoneyLoss.AutoSize = true;
-			this.cBoxMoneyLoss.Location = new System.Drawing.Point(327, 154);
-			this.cBoxMoneyLoss.Name = "cBoxMoneyLoss";
-			this.cBoxMoneyLoss.Size = new System.Drawing.Size(116, 17);
-			this.cBoxMoneyLoss.TabIndex = 4;
-			this.cBoxMoneyLoss.Text = "Disable money loss";
-			this.cBoxMoneyLoss.UseVisualStyleBackColor = true;
-			this.cBoxMoneyLoss.CheckedChanged += new System.EventHandler(this.cBoxMoneyLoss_CheckedChanged);
+			this.listBoxCheatLogs.FormattingEnabled = true;
+			this.listBoxCheatLogs.Items.AddRange(new object[] {
+            "[Cheat Log]"});
+			this.listBoxCheatLogs.Location = new System.Drawing.Point(6, 89);
+			this.listBoxCheatLogs.Name = "listBoxCheatLogs";
+			this.listBoxCheatLogs.Size = new System.Drawing.Size(161, 147);
+			this.listBoxCheatLogs.TabIndex = 9;
 			// 
-			// lblCheat
+			// btnResetLosses
 			// 
-			this.lblCheat.AutoSize = true;
-			this.lblCheat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblCheat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.lblCheat.Location = new System.Drawing.Point(7, 66);
-			this.lblCheat.Name = "lblCheat";
-			this.lblCheat.Size = new System.Drawing.Size(0, 13);
-			this.lblCheat.TabIndex = 2;
+			this.btnResetLosses.Location = new System.Drawing.Point(5, 242);
+			this.btnResetLosses.Name = "btnResetLosses";
+			this.btnResetLosses.Size = new System.Drawing.Size(78, 22);
+			this.btnResetLosses.TabIndex = 10;
+			this.btnResetLosses.Text = "Reset losses";
+			this.btnResetLosses.UseVisualStyleBackColor = true;
+			this.btnResetLosses.Click += new System.EventHandler(this.btnResetLosses_Click);
+			// 
+			// btnClearCheatLogs
+			// 
+			this.btnClearCheatLogs.Location = new System.Drawing.Point(89, 242);
+			this.btnClearCheatLogs.Name = "btnClearCheatLogs";
+			this.btnClearCheatLogs.Size = new System.Drawing.Size(79, 22);
+			this.btnClearCheatLogs.TabIndex = 11;
+			this.btnClearCheatLogs.Text = "Clear Logs";
+			this.btnClearCheatLogs.UseVisualStyleBackColor = true;
+			this.btnClearCheatLogs.Click += new System.EventHandler(this.btnClearCheatLogs_Click);
 			// 
 			// Form1
 			// 
@@ -539,6 +639,9 @@
 			this.tabPage3.PerformLayout();
 			this.tabPage2.ResumeLayout(false);
 			this.tabPage2.PerformLayout();
+			this.groupBoxCheats.ResumeLayout(false);
+			this.groupBoxCheats.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numAddFunds)).EndInit();
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -585,6 +688,14 @@
         private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.CheckBox cBoxMoneyLoss;
 		private System.Windows.Forms.Label lblCheat;
+		private System.Windows.Forms.GroupBox groupBoxCheats;
+		private System.Windows.Forms.CheckBox checkBoxWinCheat;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Button btnAddFunds;
+		private System.Windows.Forms.NumericUpDown numAddFunds;
+		private System.Windows.Forms.ListBox listBoxCheatLogs;
+		private System.Windows.Forms.Button btnClearCheatLogs;
+		private System.Windows.Forms.Button btnResetLosses;
 	}
 }
 

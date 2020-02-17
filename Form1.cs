@@ -29,9 +29,9 @@ namespace part_6._5_RPS
         //keep track of score
 		Random random = new Random();
 
+		//cheats
 		bool moneyLoss = true;
-
-
+		bool alwaysWin = false;
 
 		private void btnRock_Click(object sender, EventArgs e)
 		{
@@ -247,7 +247,7 @@ namespace part_6._5_RPS
                     botChoseScissors = true;
                 }
                 //the bot now has a choice
-                if ((userChoseRock && botChoseRock) || (userChosePaper && botChosePaper) || (userChoseScissors && botChoseScissors))
+                if (((userChoseRock && botChoseRock) || (userChosePaper && botChosePaper) || (userChoseScissors && botChoseScissors)) && alwaysWin == false)
                 {
                     lblTellGameResults.Text = "You tied the match!";
                     if (userBet != 0)
@@ -257,7 +257,7 @@ namespace part_6._5_RPS
                     tieCount += 1;
                     listBoxGameHistory.Items.Add($"{gamesPlayed}. Tie [{userScore} - {tieCount} - {botScore}]");
                 }
-                else if ((userChoseRock && botChosePaper) || (userChosePaper && botChoseScissors) || (userChoseScissors && botChoseRock))//loser
+                else if (((userChoseRock && botChosePaper) || (userChosePaper && botChoseScissors) || (userChoseScissors && botChoseRock)) && alwaysWin == false)//loser
                 {
                     if (userBet != 0)
                     {
@@ -267,15 +267,16 @@ namespace part_6._5_RPS
                     {
                         lblTellGameResults.Text = $"You lost the match!";
                     }
-					if (moneyLoss == false && userBet != 0)
+					if ((moneyLoss == false && userBet != 0))
 					{
 						userBalance += userBet;
 						lblCheat.Text = "Your bet has been returned.";
 					}
+					
                     listBoxGameHistory.Items.Add($"{gamesPlayed}. Bot won match [{userScore} - {tieCount} - {botScore}]");
                     botScore += 1;
                 }
-                else if ((botChoseRock && userChosePaper) || (botChosePaper && userChoseScissors) || (botChoseScissors && userChoseRock))//winner
+                else if ((botChoseRock && userChosePaper) || (botChosePaper && userChoseScissors) || (botChoseScissors && userChoseRock) || alwaysWin == true)//winner
                 {
                     if (userBet != 0)
                     {
@@ -309,7 +310,52 @@ namespace part_6._5_RPS
 
 		private void cBoxMoneyLoss_CheckedChanged(object sender, EventArgs e)
 		{
-			moneyLoss = false;
+			if(cBoxMoneyLoss.Checked == true)
+			{
+				listBoxCheatLogs.Items.Insert(1, $"{DateTime.Now.ToLongTimeString()} Money loss disabled.");
+				moneyLoss = false;
+			}
+			else
+			{
+				listBoxCheatLogs.Items.Insert(1, $"{DateTime.Now.ToLongTimeString()} Money loss enabled.");
+				moneyLoss = true;
+			}
+		}
+
+		private void checkBoxWinCheat_CheckedChanged(object sender, EventArgs e)
+		{
+			if(checkBoxWinCheat.Checked == true)
+			{
+				listBoxCheatLogs.Items.Insert(1, $"{DateTime.Now.ToLongTimeString()} Always win enabled.");
+				alwaysWin = true;
+			}
+			else
+			{
+				listBoxCheatLogs.Items.Insert(1, $"{DateTime.Now.ToLongTimeString()} Always win disabled.");
+				alwaysWin = false;
+			}
+		}
+
+		private void btnAddFunds_Click(object sender, EventArgs e)
+		{
+			userBalance += Convert.ToInt32(numAddFunds.Value);
+			lblUserBalance.Text = $"Balance: ${userBalance.ToString()}";
+			if(numAddFunds.Value != 0)
+			{
+			listBoxCheatLogs.Items.Insert(1,$"Added ${numAddFunds.Value} to balance (${userBalance}).");
+			}
+		}
+
+		private void btnResetLosses_Click(object sender, EventArgs e)
+		{
+			listBoxCheatLogs.Items.Insert(1, $"{DateTime.Now.ToLongTimeString()} Losses reset.");
+			botScore = 0;
+		}
+
+		private void btnClearCheatLogs_Click(object sender, EventArgs e)
+		{
+			listBoxCheatLogs.Items.Clear();
+			listBoxCheatLogs.Items.Add("[Cheat Log]");
 		}
 	}
 }
