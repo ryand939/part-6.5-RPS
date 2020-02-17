@@ -587,7 +587,7 @@
 			// 
 			// btnResetLosses
 			// 
-			this.btnResetLosses.Location = new System.Drawing.Point(5, 242);
+			this.btnResetLosses.Location = new System.Drawing.Point(90, 242);
 			this.btnResetLosses.Name = "btnResetLosses";
 			this.btnResetLosses.Size = new System.Drawing.Size(78, 22);
 			this.btnResetLosses.TabIndex = 10;
@@ -597,7 +597,7 @@
 			// 
 			// btnClearCheatLogs
 			// 
-			this.btnClearCheatLogs.Location = new System.Drawing.Point(89, 242);
+			this.btnClearCheatLogs.Location = new System.Drawing.Point(5, 242);
 			this.btnClearCheatLogs.Name = "btnClearCheatLogs";
 			this.btnClearCheatLogs.Size = new System.Drawing.Size(79, 22);
 			this.btnClearCheatLogs.TabIndex = 11;
