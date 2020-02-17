@@ -255,7 +255,7 @@ namespace part_6._5_RPS
                         userBalance += userBet;
                     }
                     tieCount += 1;
-                    listBoxGameHistory.Items.Add($"{gamesPlayed}. Tie [{userScore} - {tieCount} - {botScore}]");
+                    listBoxGameHistory.Items.Insert(0, $"{gamesPlayed}. Tie [{userScore} - {tieCount} - {botScore}]");
                 }
                 else if (((userChoseRock && botChosePaper) || (userChosePaper && botChoseScissors) || (userChoseScissors && botChoseRock)) && alwaysWin == false)//loser
                 {
@@ -272,9 +272,8 @@ namespace part_6._5_RPS
 						userBalance += userBet;
 						lblCheat.Text = "Your bet has been returned.";
 					}
-					
-                    listBoxGameHistory.Items.Add($"{gamesPlayed}. Bot won match [{userScore} - {tieCount} - {botScore}]");
-                    botScore += 1;
+					botScore += 1;
+					listBoxGameHistory.Items.Insert(0,$"{gamesPlayed}. Bot won match [{userScore} - {tieCount} - {botScore}]");
                 }
                 else if ((botChoseRock && userChosePaper) || (botChosePaper && userChoseScissors) || (botChoseScissors && userChoseRock) || alwaysWin == true)//winner
                 {
@@ -286,13 +285,13 @@ namespace part_6._5_RPS
                     else
                     {
                         lblTellGameResults.Text = $"You won the match!";
-                    }
-                    listBoxGameHistory.Items.Add($"{gamesPlayed}. Local player won match [{userScore} - {tieCount} - {botScore}]");
-                    userScore += 1;
+					}
+					userScore += 1;
+					listBoxGameHistory.Items.Insert(0, $"{gamesPlayed}. Local player won match [{userScore} - {tieCount} - {botScore}]");
 
                 }
                 lblUserBalance.Text = $"Balance: ${userBalance.ToString()}";
-                lblGameHistory.Text = "Previous game scores:";
+                lblGameHistory.Text = "Previous game scores [W - T - L]:";
                 userChoseRock = false;
                 userChosePaper = false;
                 userChoseScissors = false;
