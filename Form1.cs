@@ -27,7 +27,6 @@ namespace part_6._5_RPS
 		int botScore = 0;
 		int tieCount = 0;
         //keep track of score
-		Random random = new Random();
 
 		//cheats
 		bool moneyLoss = true;
@@ -209,7 +208,8 @@ namespace part_6._5_RPS
 
         private void Timer2_Tick(object sender, EventArgs e)
         {
-			progressBar1.Value += progBarIncrement;
+            Random random = new Random();
+            progressBar1.Value += progBarIncrement;
 			progressBar1.Value -= 1; //subtracting 1 causes the bar to automatically update itself.
 									 //if you dont subtract 1, the bar will not completely fill (visually)
 
