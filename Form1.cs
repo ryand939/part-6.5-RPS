@@ -311,12 +311,12 @@ namespace part_6._5_RPS
 		{
 			if(cBoxMoneyLoss.Checked == true)
 			{
-				listBoxCheatLogs.Items.Insert(1, $"{DateTime.Now.ToLongTimeString()} Money loss disabled.");
+				listBoxCheatLogs.Items.Insert(1, $"{DateTime.Now.ToLongTimeString()} Money loss OFF.");
 				moneyLoss = false;
 			}
 			else
 			{
-				listBoxCheatLogs.Items.Insert(1, $"{DateTime.Now.ToLongTimeString()} Money loss enabled.");
+				listBoxCheatLogs.Items.Insert(1, $"{DateTime.Now.ToLongTimeString()} Money loss ON.");
 				moneyLoss = true;
 			}
 		}
@@ -325,12 +325,12 @@ namespace part_6._5_RPS
 		{
 			if(checkBoxWinCheat.Checked == true)
 			{
-				listBoxCheatLogs.Items.Insert(1, $"{DateTime.Now.ToLongTimeString()} Always win enabled.");
+				listBoxCheatLogs.Items.Insert(1, $"{DateTime.Now.ToLongTimeString()} Always win ON.");
 				alwaysWin = true;
 			}
 			else
 			{
-				listBoxCheatLogs.Items.Insert(1, $"{DateTime.Now.ToLongTimeString()} Always win disabled.");
+				listBoxCheatLogs.Items.Insert(1, $"{DateTime.Now.ToLongTimeString()} Always win OFF.");
 				alwaysWin = false;
 			}
 		}
